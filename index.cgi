@@ -5,7 +5,7 @@ readonly BASE_DIR="$(dirname $0)"
 readonly OUT_DIR="$BASE_DIR/output"
 
 get_markdown () {
-    find $DATA_DIR/ -name '*.md' | head -n 1
+    find $DATA_DIR/ -maxdepth 1 -name '*.md' | head -n 1
 }
 
 serve_error () {
