@@ -10,7 +10,7 @@ get_markdown () {
 
 serve_error () {
     echo -e 'Content-Type: text/html\n'
-    cat $BASE_DIR/template/error.html | sed "s/{}/$1/"
+    cat $BASE_DIR/template/error.html | sed "s/\{\}/$1/"
     exit 0
 }
 
@@ -27,7 +27,7 @@ serve_pdf () {
     local pdf_name=$(basename ${md%.md}.pdf)
     pandoc -f gfm -t html5 "$md" -o $OUT_DIR/output.pdf || exit $?
     echo 'Content-Type: application/pdf'
-    echo -e "Content-Disposition: inline; filename=\"$pdf_name\"\n"
+    echo -e "Content-Disposition: inline; filename=\"${pdf_name}\"\n"
     cat $OUT_DIR/output.pdf
 }
 
