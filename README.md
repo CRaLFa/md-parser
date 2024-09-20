@@ -1,13 +1,13 @@
 # md-parser
 
-A Markdown parser using Docker and Nginx
+Markdown parser using nginx
 
 ## Usage
 
 Move to directory which contains Markdown (.md) file, then execute command below.
 
 ```
-$ docker run -d -p 80:80 -v $(pwd):/tmp k2morita/md-parser
+$ docker run -d -p 80:80 -v $PWD:/tmp cralfa/md-parser
 ```
 
 After container starts, access following URLs with browser.
